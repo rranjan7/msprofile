@@ -25,7 +25,7 @@ public class GmailTest {
 //		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //
 //		driver.findElement(By.id("username")).sendKeys("asheesh.kumar@appdirect.com");
-//		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("#gutthipalak34#");
+//		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("");
 //		driver.findElement(By.xpath("//*[@id='id7']")).click();
 //
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
