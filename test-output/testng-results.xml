@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="16189" started-at="2017-04-17T09:36:30Z" finished-at="2017-04-17T09:36:46Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="16189" started-at="2017-04-17T09:36:30Z" finished-at="2017-04-17T09:36:46Z">
+      <class name="gSheetTest.GmailTest">
+        <test-method status="PASS" signature="gmailPage()[pri:0, instance:gSheetTest.GmailTest@5c7fa833]" name="gmailPage" duration-ms="16177" started-at="2017-04-17T15:06:30Z" finished-at="2017-04-17T15:06:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- gmailPage -->
+      </class> <!-- gSheetTest.GmailTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
