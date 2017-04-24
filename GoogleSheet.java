@@ -18,8 +18,11 @@ import com.google.api.services.sheets.v4.model.*;
 import com.google.api.services.sheets.v4.Sheets;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // Demonstrates how to make an authenticated API call using OAuth 2 helper classes.
 
@@ -96,34 +99,59 @@ public class GoogleSheet {
                 .build();
     }
 
-    public static void main(String[] args) throws Exception {
+    public void getSheet() throws Exception {
+    	
+    	
+    	
+    	//SpreadsheetService service = new SpreadsheetService("Sheet1");
+     
+       
         // Build a new authorized API client service.
+    	 // https://docs.google.com/spreadsheets/d/11TeFVUDVKt1AhQJRIgICb2Hx-EJfVhUNHCtPisagGOc/edit
         Sheets service = getSheetsService();
         String spreadsheetId = "11TeFVUDVKt1AhQJRIgICb2Hx-EJfVhUNHCtPisagGOc";
         String range;
-        
-        //DISPLAY  EDITION NAME , EDITION ID , PRICE OF USD,AUD,EUR,GBP 500 EDITIONS
-        
-        List<String> price=Arrays.asList("USD!3:500","AUD!3:500","EUR!3:500","GBP!3:500");
-        for(int i=0;i<4;i++)
-        {
-        	range=price.get(i);
-        ValueRange response = service.spreadsheets().values()
-            .get(spreadsheetId, range)
+        int count =0;
+        List<String> price = new ArrayList<String>();
+        price.add("USD");
+        price.add("AUD");
+        price.add("EUR");
+        price.add("GBP");
+        for(int i=0;i<4;i++) {
+        	range=price.get(i)+"!3:520";
+             ValueRange response = service.spreadsheets().values()
+            .get( spreadsheetId, range)
             .execute();
-        
+            
+       List<Editions> editions1=new ArrayList<Editions>(); 
+   	 
         List<List<Object>> values = response.getValues();
         if (values == null || values.size() == 0) {
             System.out.println("No data found.");
         } else {
         	 System.out.println("EDITION NAME , EDITION ID, PRICE");
          for (List row : values) {
-              System.out.printf("%s, %s ,%s \n", row.get(3), row.get(4), row.get(10));
-            }
-            
-        }
+        	 Editions editions=new Editions();
+        		Map<String,String> pricing = new HashMap<String,String>();
+        	 
+         String curr = price.get(count).substring(0).substring(0, 3);
+             editions.setEdition_name(row.get(3).toString());
+        	 editions.setOffer_id(row.get(4).toString());
+        	 pricing.put(price.get(count).substring(0).substring(0, 3), row.get(10).toString());
+        	 editions.setPrice(pricing);
+        	 editions1.add(editions);
+        	 }
+            count++;
+         
+        System.out.println(editions1.size());
+         for (Editions ed : editions1){
+             System.out.println(ed.getEdition_name());
+             System.out.println(ed.getOffer_id());
+             System.out.println(ed.getPrice().keySet());
+             System.out.println(ed.getPrice().values());
+         }
         }
     }
 }
-
+}
 
