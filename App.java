@@ -11,7 +11,7 @@ import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 public class App {
 	
-//    public static final String GOOGLE_ACCOUNT_USERNAME = "jasdeep.kaur@appdirect.com"; // Fill in google account username
+//    public static final String GOOGLE_ACCOUNT_USERNAME = ""; // Fill in google account username
 //      public static final String GOOGLE_ACCOUNT_PASSWORD =""; // Fill in google account password
       public static final String SPREADSHEET_URL = "https://spreadsheets.google.com/feeds/appdirect.com/spreadsheets/1aHI8GFMpdlSZ1UxjS7p9IsEOkCxsDXIsHGF8NOAgNl4/"; //Fill in google spreadsheet URI
  
